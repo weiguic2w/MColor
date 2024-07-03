@@ -1,10 +1,7 @@
-<template>
-  <div>test</div>
-</template>
+<template></template>
 
 <script>
-export default {
-  name: "IndexPage",
+export default { 
 };
 </script>
  

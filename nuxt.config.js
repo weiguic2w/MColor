@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'MColor',
+    title: 'test',
     htmlAttrs: {
       lang: 'en'
     },
@@ -21,10 +21,9 @@ export default {
     { src: '~/assets/css/style.css' }
   ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/VueColor.js' },
   ],
-
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -38,5 +37,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: [
+      '@material/material-color-utilities'
+    ]
   }
 }

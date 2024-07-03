@@ -1,3 +1,39 @@
+:root {
+  --primary-100: #d4eaf7;
+  --primary-200: #b6ccd8;
+  --primary-300: #3b3c3d;
+  --accent-100: #71c4ef;
+  --accent-200: #00668c;
+  --text-100: #313d44;
+  --text-200: #1d1c1c;
+  --bg-100: #f9f9f9;
+  --bg-200: #eeeeee;
+  --bg-300: #bebdba;
+  --right: #6aaa1b;
+  --error: #BA1A1A;
+}
+
+[data-theme='dark'] {
+  --primary-100: #3b3c3d;
+  --primary-200: #2c2c2c;
+  --primary-300: #1d1d1d;
+  --accent-100: #005f6b;
+  --accent-200: #003f5c;
+  --text-100: #f9f9f9;
+  --text-200: #e0e0e0;
+  --bg-100: #1a1a1a;
+  --bg-200: #2a2a2a;
+  --bg-300: #3a3a3a;
+  --right: #a8ff3d;
+  --error: #FF5449;
+}
+
+body {
+  background-color: var(--bg-100);
+  color: var(--text-100);
+  transition: 150ms ease-in-out;
+}
+
 /* Reset some default styles */
 * {
   margin: 0;
@@ -6,21 +42,19 @@
 }
 
 html {
-  font-size: 62.5%; 
+  font-size: 62.5%;
 }
 
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
 }
 
 /* Container class for consistent padding and max-width */
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 2rem;
 }
 
 p {
@@ -28,38 +62,21 @@ p {
 }
 
 a {
-  color: #007bff;
+  color: var(--text-100);
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+a:hover,
+a.active {
+  color: var(--text-200);
+  border-color: var(--text-200);
 }
 
-/* Flexbox utilities */
-.d-flex {
-  display: flex;
-}
-
-.justify-content-center {
-  justify-content: center;
-}
-
-.align-items-center {
-  align-items: center;
-}
-
-/* Image styles */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Utility class for clearfix */
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
+/* ul */
+ul {
+  list-style: none;
+  margin-block: 0em;
+  padding-inline-start: 0px;
 }
 
 /* Responsive media queries */
@@ -71,4 +88,42 @@ img {
   .d-flex {
     flex-direction: column;
   }
+}
+
+.fl-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+ * tooltip
+ */
+.tooltip {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  color: #fff;
+  background-color: hsla(222, 21%, 12%, 0.9);
+  visibility: hidden;
+  text-align: center;
+  border-radius: 6px;
+  padding: 1rem;
+  position: absolute;
+  z-index: 999;
+  transform: translate(-40%, -150%);
+  font-size: 1.8rem;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
